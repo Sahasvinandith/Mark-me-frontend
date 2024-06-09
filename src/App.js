@@ -1,20 +1,33 @@
-import { Route, Routes } from "react-router-dom";
 import { Homepage } from "./pages/Homepage";
-import { useNavigate } from "react-router-dom";
-import { Scheduleclickmodel } from "./contents/Homepage/Pages/Schedule/contents/scheduleclickmodel";
-import { Scedule } from "./contents/Homepage/Pages/Schedule/Schedule_page";
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { AuthProvider,useAuth } from "./APIs/AuthContext";
+import { LoginSignup } from "./pages/LoginSignup";
+
 
 function App() {
-  const navigator=useNavigate();
-  return (
 
-    <div>
-      <Routes>
-        <Route index  element={<Homepage/>}/>   
-      </Routes>
-      
-    </div>
+  return (
+    <AuthProvider>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<LoginSignup />} />
+            <Route path="/home" element={<ProtectedRoute><Homepage /></ProtectedRoute>} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
+
+const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};
 
 export default App;
