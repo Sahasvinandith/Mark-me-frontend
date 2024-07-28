@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, Tabs, Tab, Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, CssBaseline } from '@mui/material';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import QRCode from 'qrcode.react';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,7 +50,7 @@ export const ClassPage = () => {
                         style={{ fontWeight: 'bold', fontSize: '20px',height: '60px' }}
                         sx={{
                             '&.Mui-selected': {
-                                color: 'yellow',
+                                color: 'white',
                             },
                         }}
                     />
@@ -58,7 +59,7 @@ export const ClassPage = () => {
                         style={{ fontWeight: 'bold', fontSize: '20px' }}
                         sx={{
                             '&.Mui-selected': {
-                                color: 'yellow',
+                                color: 'white',
                             },
                         }}
                     />
@@ -104,8 +105,9 @@ export const ClassPage = () => {
                         </Table>
                     </TableContainer>
                 </TabPanel>
-                <TabPanel value={value} index={1}>
-                    {"/* Chats tab content */"}
+                <TabPanel value={value} index={1} className="flex justify-center" >
+                            <QRCode value="http://172.20.10.2:3000" size={500} />
+                   
                 </TabPanel>
             </Container>
         </div>
