@@ -42,10 +42,26 @@ export const ClassPage = () => {
     return (
         <div>
             <CssBaseline />
-            <AppBar position="static" style={{ backgroundColor: '#3f51b5' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label="My Class" style={{ fontWeight: 'bold'}} />
-                    <Tab label="Chats" style={{ fontWeight: 'bold' }} />
+            <AppBar position="static" style={{ backgroundColor: '#3f51b5',height: '60px' }}>
+                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" indicatorColor="secondary" textColor="inherit">
+                    <Tab
+                        label="My Class"
+                        style={{ fontWeight: 'bold', fontSize: '20px',height: '60px' }}
+                        sx={{
+                            '&.Mui-selected': {
+                                color: 'yellow',
+                            },
+                        }}
+                    />
+                    <Tab
+                        label="Chats"
+                        style={{ fontWeight: 'bold', fontSize: '20px' }}
+                        sx={{
+                            '&.Mui-selected': {
+                                color: 'yellow',
+                            },
+                        }}
+                    />
                 </Tabs>
             </AppBar>
             <Container>
@@ -89,7 +105,7 @@ export const ClassPage = () => {
                     </TableContainer>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    {/* Chats tab content */}
+                    {"/* Chats tab content */"}
                 </TabPanel>
             </Container>
         </div>
