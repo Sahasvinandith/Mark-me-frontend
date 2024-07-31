@@ -3,6 +3,7 @@ import { Homepage_navbar } from '../contents/Homepage/Homepage_navbar';
 import { Homepage_menu } from '../contents/Homepage/Homepage_menu';
 import { ClassPage } from './StartClass';
 import { Scedule } from '../contents/Homepage/Pages/Schedule/Schedule_page';
+import { MyClassPage } from './MyClasses';
 import { Route, Routes } from "react-router-dom";
 
 export const Homepage=()=>{
@@ -30,16 +31,16 @@ export const Homepage=()=>{
 
     
     return(
-        <div>
+        <div className='w-screen h-screen flex flex-col'>
             
             <Homepage_navbar />
             <div className='flex'>
                 
-                <div className='lg:w-72 sm:w-56 md:w-56 h-auto flex-grow-0'>
-                    <Homepage_menu className="h-auto" changepage2={changePage2} changepage1={changePage1} changepage3={changePage3}/>
+                <div className='lg:w-72 sm:w-56 md:w-56 flex-grow-0' style={{height:'90vh'}}>
+                    <Homepage_menu changepage2={changePage2} changepage1={changePage1} changepage3={changePage3}/>
                 </div>
-                <div className=' my-2 w-screen overflow-y-scroll '>
-                    {cur_index==1?<Scedule/>:cur_index==2?<ClassPage/>:null}
+                <div className=' my-1 overflow-y-scroll' style={{height:'90vh',width:'85vw'}}>
+                    {cur_index==1?<Scedule/>:cur_index==2?<ClassPage/>:cur_index==3?<MyClassPage/>:null}
                 </div>
 
             </div>

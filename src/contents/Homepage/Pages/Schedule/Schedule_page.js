@@ -7,18 +7,18 @@ export const Scedule=()=>{
     function modeselector(){
         if(weekday){
             return(
-                <div className="flex justify-center items-center">
-                    <button className="my-2 ml-10 bg-green-500 text-white p-4  rounded-3xl font-bold  " onClick={()=>{setmode(!weekday)}}>Weekday Mode:On</button>
-                    <button className="my-2 ml-10 bg-red-500 text-white p-4  rounded-3xl font-bold " onClick={()=>{setmode(!weekday)}}>Fullweek Mode:Off</button>
+                <div className="flex justify-center items-center" style={{height:'5vh'}}>
+                    <button className="my-2 ml-10 bg-green-500 text-white p-4 flex items-center  rounded-3xl font-bold  " onClick={()=>{setmode(!weekday)}}>Weekday Mode:On</button>
+                    <button className="my-2 ml-10 bg-red-500 text-white p-4   flex items-center rounded-3xl font-bold " onClick={()=>{setmode(!weekday)}}>Fullweek Mode:Off</button>
                 </div>
                 
             )
         }
         else{
             return(
-                <div className="flex justify-center">
-                    <button className="my-2 ml-10 bg-red-500 text-white p-4  rounded-3xl font-bold  " onClick={()=>{setmode(!weekday)}}>Weekday Mode:Off</button>
-                    <button className="my-2 ml-10 bg-green-500 text-white p-4  rounded-3xl font-bold " onClick={()=>{setmode(!weekday)}}>Fullweek Mode:On</button>
+                <div className="flex justify-center items-center" style={{height:'5vh'}}>
+                    <button className="my-2 ml-10 bg-red-500 text-white p-4 flex items-center rounded-3xl font-bold  " onClick={()=>{setmode(!weekday)}}>Weekday Mode:Off</button>
+                    <button className="my-2 ml-10 bg-green-500 text-white p-4  flex items-center rounded-3xl font-bold " onClick={()=>{setmode(!weekday)}}>Fullweek Mode:On</button>
                     
                 </div>
                 
@@ -37,11 +37,11 @@ export const Scedule=()=>{
     
 
     return(
-        <div className={1 && "dark"}>
+        <div style={{ height: '90vh' }} className="flex flex-col">
                 {   
                     modeselector()
                 }
-            <div className="flex w-screen pt-2">
+            <div className="flex pt-2" style={{width:'85vw'}}>
                 
                {
                 schedule_selector()
