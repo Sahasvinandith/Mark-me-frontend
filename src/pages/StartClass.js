@@ -206,8 +206,8 @@ export const ClassPage = ({ prevpage }) => {
                 </TabPanel>
                 <TabPanel value={value} index={2} className="flex justify-center" >
                     {location ? (
-                        // <QRCode value={`${location.latitude.toString()},${location.longitude.toString()}`} size={500} />
-                        <QRCode value={`6.8527667,79.9035833`} size={500} />
+                        <QRCode value={`${location.latitude.toString()},${location.longitude.toString()}`} size={500} />
+                        // <QRCode value={`6.8527667,79.9035833`} size={500} />
                     ) : (
                         <Typography>Loading location...</Typography>
                     )}

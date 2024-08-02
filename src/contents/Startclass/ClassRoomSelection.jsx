@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardMedia, CardContent, Typography, Grid, Container } from '@mui/material';
 import { ClassPage } from '../../pages/StartClass';
 import { useState } from 'react';
+import ClassImage from '../Assets/images/classroom.jpeg';
 
 const classrooms = [
     { id: 1, name: 'Classroom A', dimensions: '20x30', image: '../Assets/images/classroom.jpeg' },
@@ -27,7 +28,7 @@ export const ClassroomSelection = () => {
         <div>
             {selectedClassroom != 0 ? <ClassPage prevpage={gobackfunc}/> :
                 <Container>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h4" gutterBottom >
                         Select a Classroom
                     </Typography>
                     <Grid container spacing={4} >
@@ -37,7 +38,7 @@ export const ClassroomSelection = () => {
                                     <CardMedia
                                         component="img"
                                         height="140"
-                                        image={classroom.image}
+                                        image={ClassImage}
                                         alt={classroom.name}
                                     />
                                     <CardContent>
