@@ -4,8 +4,8 @@ import { Homepage_menu } from '../contents/Homepage/Homepage_menu';
 import { ClassPage } from './StartClass';
 import { Scedule } from '../contents/Homepage/Pages/Schedule/Schedule_page';
 import { MyClassPage } from './MyClasses';
-import { Route, Routes } from "react-router-dom";
-
+import { ClassroomSelection } from '../contents/Startclass/ClassRoomSelection';
+import { ClassroomDetail } from '../contents/Startclass/ClassRoomDetails';
 export const Homepage=()=>{
 
     const [cur_index,setindex]=useState(1);
@@ -40,7 +40,7 @@ export const Homepage=()=>{
                     <Homepage_menu changepage2={changePage2} changepage1={changePage1} changepage3={changePage3}/>
                 </div>
                 <div className=' my-1 overflow-y-scroll' style={{height:'90vh',width:'85vw'}}>
-                    {cur_index==1?<Scedule/>:cur_index==2?<ClassPage/>:cur_index==3?<MyClassPage/>:null}
+                    {cur_index==1?<Scedule/>:cur_index==2?<ClassroomSelection/>:cur_index==3?<MyClassPage/>:null}
                 </div>
 
             </div>
