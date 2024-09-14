@@ -26,7 +26,7 @@ function TabPanel(props) {
     );
 }
 
-export const ClassPage = ({ prevpage }) => {
+export const ClassPage = ({ prevpage, Modulename, className }) => {
     const [value, setValue] = useState(0);
     const [location, setLocation] = useState(null);
     const [data, setData] = useState([]);
@@ -44,6 +44,7 @@ export const ClassPage = ({ prevpage }) => {
                 console.log("Location found");
             }, (error) => {
                 console.error("Error retrieving location", error);
+                alert("Error retrieving location", error);
             });
         } else {
             console.error("Geolocation is not supported by this browser");
@@ -65,7 +66,7 @@ export const ClassPage = ({ prevpage }) => {
         querySnapshot.forEach((doc) => {
             cities.push({
                 "name": doc.id,
-                "attendance": doc.data().Attendence,                 
+                "attendance": doc.data().Attendence,
                 "arrivalTime": doc.data().time
             });
         });
@@ -101,7 +102,16 @@ export const ClassPage = ({ prevpage }) => {
         <div>
 
             <CssBaseline />
-            <AppBar position="static" style={{ backgroundColor: '#3f51b5', height: '60px' }} className='flex flex-row'>
+            <div className='flex justify-center text-3xl gap-10 font-semibold'>
+                <div>
+                    Module: {Modulename}
+                </div>
+                <div className=''>
+                    Class name: {className}
+                </div>
+
+            </div>
+            <AppBar position="sticky" style={{ backgroundColor: '#3f51b5', height: '60px' }} className='flex flex-row'>
 
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" indicatorColor="secondary" textColor="inherit">
                     <button className='bg-transparent' onClick={prevpage}>Back</button>
@@ -206,8 +216,8 @@ export const ClassPage = ({ prevpage }) => {
                 </TabPanel>
                 <TabPanel value={value} index={2} className="flex justify-center" >
                     {location ? (
-                        <QRCode value={`${location.latitude.toString()},${location.longitude.toString()}`} size={500} />
-                        // <QRCode value={`6.8527667,79.9035833`} size={500} />
+                        // <QRCode value={`${location.latitude.toString()},${location.longitude.toString()}`} size={500} />
+                        <QRCode value={`6.8527667,79.9035833`} size={500} />
                     ) : (
                         <Typography>Loading location...</Typography>
                     )}

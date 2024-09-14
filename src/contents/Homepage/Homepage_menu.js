@@ -16,7 +16,6 @@ export const Homepage_menu = ({ changepage1, changepage2, changepage3 }) => {
             <div className=" flex flex-1 border-8  border-gray-700 my-2 rounded-3xl hover:cursor-pointer mx-4 justify-center items-center text-3xl text-yellow-500" onClick={changepage1}>Schedule</div>
             <div className=" flex flex-1  border-8  border-gray-700 my-2 rounded-3xl hover:cursor-pointer mx-4 justify-center items-center text-3xl text-yellow-500" onClick={changepage2}>Start Class</div>
             <div className=" flex flex-1  border-8  border-gray-700 my-2 rounded-3xl hover:cursor-pointer mx-4 justify-center items-center text-3xl text-yellow-500" onClick={changepage3}>My Classrooms</div>
-            <div className=" flex flex-1  border-8  border-gray-700 my-2 rounded-3xl hover:cursor-pointer mx-4 justify-center items-center text-3xl text-yellow-500" onClick={() => { setmode(!mode) }}>Settings</div>
             <div className=" flex flex-1  border-8  border-gray-700 my-2 rounded-3xl hover:cursor-pointer mx-4 justify-center items-center text-3xl text-yellow-500" onClick={() => { setmode(!mode) }}>Aboutus</div>
 
 

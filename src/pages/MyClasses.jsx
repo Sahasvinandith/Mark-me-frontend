@@ -1,5 +1,6 @@
-import { LectureHall } from '../contents/MyClassrooms/LectureHall'
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { LectureHall } from '../contents/MyClassrooms/LectureHall';
+import { Box, Container, Grid, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { SquarePlus } from 'lucide-react';
 
 const initialLectureHallsData = [
@@ -22,36 +23,57 @@ export const MyClassPage = () => {
     };
 
     return (
-        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
-                <button className='w-auto h-auto flex flex-row gap-2 text-lg font-semibold items-center justify-center rounded-lg' onClick={() => setShowForm(true)} style={{ marginRight: '10px',padding: '10px' }}><SquarePlus size={35}/>Add New Lecture Hall</button>
-                
-            </div>
+        <Container maxWidth="md" sx={{ padding: '20px', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<SquarePlus size={20} />}
+                    onClick={() => setShowForm(true)}
+                    sx={{ textTransform: 'none', fontSize: '16px' }}
+                >
+                    Add New Lecture Hall
+                </Button>
+            </Box>
 
-            <div className='flex justify-center items-center w-full' style={{ display: 'flex', flexWrap: 'wrap' , height: '70vh' }}>
+            <Grid container spacing={4}>
                 {lectureHalls.map((hall, index) => (
-                    <LectureHall key={index} name={hall.name} dimensions={hall.dimensions} />
+                    <Grid item key={index} xs={12} sm={6} md={4}>
+                        <LectureHall name={hall.name} dimensions={hall.dimensions} />
+                    </Grid>
                 ))}
-            </div>
+            </Grid>
 
-            {showForm && (
-                <div style={{ marginTop: '20px' }}>
-                    <input
+            <Dialog open={showForm} onClose={() => setShowForm(false)}>
+                <DialogTitle>Add New Lecture Hall</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        label="Lecture Hall Name"
                         type="text"
-                        placeholder="Lecture Hall Name"
+                        fullWidth
                         value={newHallName}
                         onChange={(e) => setNewHallName(e.target.value)}
                     />
-                    <input
+                    <TextField
+                        margin="dense"
+                        label="Dimensions"
                         type="text"
-                        placeholder="Dimensions"
+                        fullWidth
                         value={newHallDimensions}
                         onChange={(e) => setNewHallDimensions(e.target.value)}
                     />
-                    <button onClick={handleAddLectureHall}>Add</button>
-                    <button onClick={() => setShowForm(false)}>Cancel</button>
-                </div>
-            )}
-        </div>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setShowForm(false)} color="secondary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleAddLectureHall} color="primary">
+                        Add
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </Container>
     );
-}
+};
