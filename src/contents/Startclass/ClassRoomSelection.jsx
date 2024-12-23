@@ -34,7 +34,7 @@ export const ClassroomSelection = () => {
     return (
         <div>
             {selectedClassroom !== 0 ? (
-                <ClassroomDetail gobackfunc={gobackfunc} moduleName={moduleName}/>
+                <ClassroomDetail gobackfunc={gobackfunc} moduleName={moduleName} />
                 // <ClassPage prevpage={gobackfunc} Modulename={moduleName} className={classrooms[selectedClassroom - 1].name} />
             ) : (
                 <div className='flex flex-col gap-3'>
@@ -42,6 +42,7 @@ export const ClassroomSelection = () => {
                         <div className='text-3xl font-bold mr-5'>
                             Enter the name of the module:
                         </div>
+
                         <TextField
                             required
                             value={moduleName}
@@ -56,6 +57,16 @@ export const ClassroomSelection = () => {
                             error={!!error}
                             helperText={error}
                         />
+                    </div>
+                    <div className='flex justify-center items-center flex-row '>
+                        
+                        <div className='text-3xl font-bold mr-3'>Select an Institute:</div>
+
+                        <select className='form-select text-lg font-semibold w-max px-8'>
+                            <option>USJ_foe</option>
+                            <option>Vidula_Panadura</option>
+                        </select>
+
                     </div>
 
                     <Container className=''>

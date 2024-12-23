@@ -31,6 +31,7 @@ export const LoginSignup = () => {
       navigate('/home');
     } catch (error) {
       setError(error.message);
+      console.log("Error found!!",error);
     }
   };
 
